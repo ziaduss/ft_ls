@@ -25,9 +25,10 @@ void ft_exit(char *param)
     test->name = ft_strdup(param);
     rep = opendir(test->name );
   
-	lstat(test->name, &(test->stats));
+	lstat(test->name, &(test->stats));   
     while ((lecture = readdir(rep))) 
-    {
+    {  
+   
         if (lecture->d_type == 4)
             printf("d ");
         else
@@ -35,9 +36,9 @@ void ft_exit(char *param)
             printf("- ");
         }
         
-        printf("%s\n", lecture->d_name);
+        printf("%s -----type:   %hhu\n", lecture->d_name, lecture->d_type);
     }
-    //printf("%llu",test->stats.st_ino);
+    printf("************%llu",test->stats.st_ino);
     closedir(rep);
 }
 
