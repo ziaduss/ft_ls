@@ -1,5 +1,26 @@
 #include "../includes/ft_ls.h"
 
+void    ft_print_time(char *str)
+{
+    int i;
+    int nb;
+
+    nb = 0;
+    i = 4;
+    while (str[i])
+    {
+        if (str[i] == ':')
+            nb++;
+        if (nb < 2)
+        {
+            ft_putchar(str[i]);
+        }
+        i++;
+
+    }
+
+}
+
 void    ft_lsl(t_file *lst)
 {
     mode_t var;
@@ -24,13 +45,19 @@ void    ft_lsl(t_file *lst)
     ft_putchar((var & S_IWOTH) ? 'w' : '-');
     ft_putchar((var & S_IXOTH) ? 'x' : '-');
     ft_putstr("    ");
-    printf("%d  ",lst->stats.st_nlink);
+    ft_putnbr(lst->stats.st_nlink);
+    ft_putstr("    ");
     qwe = getpwuid(lst->stats.st_uid);
     asd = getgrgid(lst->stats.st_gid);
-    printf("%s    ", qwe->pw_name);
-    printf("%s    ", asd->gr_name);
-    printf("%lld    ", lst->stats.st_size);
+    ft_putstr(qwe->pw_name);
+    ft_putstr("    ");
+    ft_putstr(asd->gr_name);
+    ft_putstr("    ");
+    ft_putnbr(lst->stats.st_size);
+    ft_putstr("    ");
     temp = ctime(&lst->stats.st_mtimespec.tv_sec);
-    printf("%s    ",temp);
+    ft_print_time(temp);
+    ft_putstr("    ");
+    //printf("%s    ",temp);
 
 }

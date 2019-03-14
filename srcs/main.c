@@ -43,10 +43,12 @@ int     main(int argc, char **argv)
 {
     int i;
 
-    i = argc;
-    if (argc == 1)
-        ft_exit0();
-    else
-        ft_exit(argv[1]);
+    i = 1;
+    while(i < argc){
+                ft_exit(argv[i++]);
+        /* code */
+    }
+    
+
     return (0);
 }
