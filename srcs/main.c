@@ -23,20 +23,17 @@ void ft_exit(char *param)
    
 	test = (t_file *)ft_memalloc(sizeof(t_file)); 
     test->name = ft_strdup(param);
-    rep = opendir(test->name );
+    rep = opendir(test->name);
   
-	lstat(test->name, &(test->stats));   
+	
+//	printf("---- ****************   %d\n", test->stats.);
+	//printf("---- ****************   %d\n", test->stats.st_mode.S_IFMT);
     while ((lecture = readdir(rep))) 
     {  
-   
-        if (lecture->d_type == 4)
-            printf("d ");
-        else
-        {
-            printf("- ");
-        }
+        lstat(lecture->d_name, &(test->stats));
+        ft_lsl(test);
         
-        printf("%s -----type:   %hhu\n", lecture->d_name, lecture->d_type);
+        printf("%s\n", lecture->d_name);
     }
     printf("************%llu",test->stats.st_ino);
     closedir(rep);

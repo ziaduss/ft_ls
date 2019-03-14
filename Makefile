@@ -3,6 +3,7 @@ CC = gcc
 NAME = ft_ls
 
 SRCS = srcs/main.c \
+		srcs/ft_lsl.c \
 
 OBJ = $(SRCS:.c=.o)
 

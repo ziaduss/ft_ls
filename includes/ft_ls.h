@@ -7,11 +7,15 @@
 #include <sys/stat.h> 
 #include <unistd.h>
 #include "../libft/libft.h"
+#include <pwd.h>
+#include <grp.h>
+#include <time.h>
 
 typedef struct         s_file
 {
     char            *name;
     struct stat     stats;
 }                   t_file;
+void    ft_lsl(t_file *lst);
 
 #endif
