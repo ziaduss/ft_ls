@@ -44,20 +44,20 @@ void    ft_lsl(t_file *lst)
     ft_putchar((var & S_IROTH) ? 'r' : '-');
     ft_putchar((var & S_IWOTH) ? 'w' : '-');
     ft_putchar((var & S_IXOTH) ? 'x' : '-');
-    ft_putstr("    ");
+    ft_putstr("  ");
     ft_putnbr(lst->stats.st_nlink);
-    ft_putstr("    ");
+    ft_putstr("  ");
     qwe = getpwuid(lst->stats.st_uid);
     asd = getgrgid(lst->stats.st_gid);
     ft_putstr(qwe->pw_name);
-    ft_putstr("    ");
+    ft_putstr("  ");
     ft_putstr(asd->gr_name);
-    ft_putstr("    ");
+    ft_putstr("   ");
     ft_putnbr(lst->stats.st_size);
-    ft_putstr("    ");
+    ft_putstr("  ");
     temp = ctime(&lst->stats.st_mtimespec.tv_sec);
     ft_print_time(temp);
-    ft_putstr("    ");
+    ft_putstr(" ");
     //printf("%s    ",temp);
 
 }

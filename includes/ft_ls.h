@@ -16,6 +16,10 @@ typedef struct         s_file
     char            *name;
     struct stat     stats;
 }                   t_file;
+
+
 void    ft_lsl(t_file *lst);
+void    ft_parsing(char *str);
+
 
 #endif

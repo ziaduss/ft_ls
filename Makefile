@@ -4,6 +4,7 @@ NAME = ft_ls
 
 SRCS = srcs/main.c \
 		srcs/ft_lsl.c \
+		srcs/ft_parsing.c \
 
 OBJ = $(SRCS:.c=.o)
 

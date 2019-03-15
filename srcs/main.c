@@ -21,6 +21,7 @@ void ft_exit(char *param)
     DIR *rep;
     t_file *test;
    
+    ft_parsing(param);
 	test = (t_file *)ft_memalloc(sizeof(t_file)); 
     test->name = ft_strdup(param);
     rep = opendir(test->name);
@@ -44,7 +45,7 @@ int     main(int argc, char **argv)
     int i;
 
     i = 1;
-    while(i < argc){
+    while(i <= argc){
                 ft_exit(argv[i++]);
         /* code */
     }
