@@ -1,6 +1,6 @@
 #include "../includes/ft_ls.h"
 
-void    ft_exit0()
+/*void    ft_exit0()
 {
     struct dirent *lecture;
     DIR *rep;
@@ -14,14 +14,16 @@ void    ft_exit0()
         if (ft_strncmp(lecture->d_name, ".", 1) != 0)
             ft_putendl(lecture->d_name);
     }
-}
+}*/
 void ft_exit(char *param)
 {
     struct dirent *lecture;
     DIR *rep;
     t_file *test;
+    char *spath;
    
-    ft_parsing(param);
+    if(!(ft_parsing(param)))
+        exit(0);
 	test = (t_file *)ft_memalloc(sizeof(t_file)); 
     test->name = ft_strdup(param);
     rep = opendir(test->name);
@@ -31,8 +33,10 @@ void ft_exit(char *param)
 	//printf("---- ****************   %d\n", test->stats.st_mode.S_IFMT);
     while ((lecture = readdir(rep))) 
     {  
-        lstat(lecture->d_name, &(test->stats));
-        ft_lsl(test);
+        spath = ft_strjoin(ft_strjoin(param, "/"), lecture->d_name);
+        lstat(spath, &(test->stats));
+        //printf("-------------------  %hu -------\n", test->stats.st_mode);
+        ft_lsl(&test->stats);
         
         printf("%s\n", lecture->d_name);
     }
@@ -45,9 +49,9 @@ int     main(int argc, char **argv)
     int i;
 
     i = 1;
-    while(i <= argc){
+    while(i <= argc)
+    {
                 ft_exit(argv[i++]);
-        /* code */
     }
     
 

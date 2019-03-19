@@ -20,12 +20,18 @@ int   ft_test_arg(char *str)
     return (1);
 }
 
-void    ft_parsing(char *str)
+int    ft_parsing(char *str)
 {
-    if (str[0] == '-')
-        {
-            if (!(ft_test_arg(str)))
-                exit(0);
-        }
+    int t;
+    int i;
 
+    i = 0;
+    t = 0;
+    if (str[0] == '-')
+    {
+        if (!(ft_test_arg(str)))
+            return (0);
+    }
+    return(1);
+    
 }
