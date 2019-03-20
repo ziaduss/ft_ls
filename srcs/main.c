@@ -22,10 +22,11 @@ void ft_exit(char *param)
     t_file *test;
     char *spath;
    
-    if(!(ft_parsing(param)))
+    if((ft_parsing(param)) == 0)
         exit(0);
 	test = (t_file *)ft_memalloc(sizeof(t_file)); 
     test->name = ft_strdup(param);
+    printf("------//////********   %s\n",test->name);
     rep = opendir(test->name);
   
 	

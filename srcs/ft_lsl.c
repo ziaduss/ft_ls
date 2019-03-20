@@ -21,10 +21,6 @@ void    ft_print_time(char *str)
 
 }
 
-void    ft_imp(struct stat *lst)
-{
-                
-}
 
 void    ft_lsl(struct stat *lst)
 {
